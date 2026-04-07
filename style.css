@@ -1,0 +1,144 @@
+:root {
+  --bg-1: #0f172a;
+  --bg-2: #1e293b;
+  --card: rgba(15, 23, 42, 0.88);
+  --line: #334155;
+  --text: #f8fafc;
+  --muted: #cbd5e1;
+  --accent: #22d3ee;
+  --accent-2: #3b82f6;
+  --danger: #ef4444;
+  --cell: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, var(--bg-2), var(--bg-1) 60%);
+  color: var(--text);
+}
+
+.app {
+  width: min(520px, 94vw);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  text-align: center;
+  margin: 0 0 14px;
+}
+
+.mode,
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.score {
+  margin: 12px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.score span {
+  background: #0b1220;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px;
+  text-align: center;
+  color: var(--muted);
+}
+
+#status {
+  text-align: center;
+  margin: 10px 0 14px;
+  font-size: 1.05rem;
+}
+
+.board {
+  width: min(420px, 92vw);
+  margin: 0 auto 14px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.cell {
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  border: 1px solid #475569;
+  background: var(--cell);
+  color: var(--text);
+  font-size: clamp(28px, 10vw, 42px);
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.15s ease;
+}
+
+.cell:hover:enabled {
+  transform: scale(1.03);
+  background: #2a364b;
+}
+
+.cell:disabled {
+  cursor: not-allowed;
+}
+
+.cell.win {
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.25), rgba(16, 185, 129, 0.25));
+  border-color: var(--accent);
+}
+
+.btn {
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(130deg, var(--accent), var(--accent-2));
+  color: #061424;
+}
+
+.btn.mode-btn {
+  opacity: 0.88;
+}
+
+.btn.mode-btn.active {
+  opacity: 1;
+  box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.4) inset;
+}
+
+.btn.danger {
+  background: linear-gradient(130deg, #f87171, var(--danger));
+  color: #2f0505;
+}
+
+.btn:focus-visible,
+.cell:focus-visible {
+  outline: 3px solid rgba(34, 211, 238, 0.75);
+  outline-offset: 2px;
+}
+
+@media (max-width: 500px) {
+  .app {
+    padding: 16px;
+  }
+  .score {
+    grid-template-columns: 1fr;
+  }
+}
+

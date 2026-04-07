@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>Tic Tac Toe</h1>
+
+    <div class="mode" role="group" aria-label="Game mode">
+      <button id="pvpBtn" class="btn mode-btn active" type="button">Player vs Player</button>
+      <button id="aiBtn" class="btn mode-btn" type="button">Player vs Computer</button>
+    </div>
+
+    <div class="score">
+      <span>X: <strong id="scoreX">0</strong></span>
+      <span>O/AI: <strong id="scoreO">0</strong></span>
+      <span>Draw: <strong id="scoreDraw">0</strong></span>
+    </div>
+
+    <h2 id="status" aria-live="polite">Player X Turn</h2>
+
+    <section class="board" id="board" aria-label="Tic Tac Toe board"></section>
+
+    <div class="actions">
+      <button id="newRoundBtn" class="btn" type="button">New Round</button>
+      <button id="resetAllBtn" class="btn danger" type="button">Reset Scores</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
